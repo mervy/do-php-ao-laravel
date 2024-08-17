@@ -1,0 +1,18 @@
+{
+    "name": "mervy/do-php-ao-laravel",
+    "autoload": {
+        "psr-4": {
+            "Kurama\\": "app/",
+            "Kurama\\Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rogério Soares",
+            "email": "rgrsoares@yahoo.com.br"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^7.1"
+    }
+}
