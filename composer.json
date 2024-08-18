@@ -12,7 +12,11 @@
             "email": "rgrsoares@yahoo.com.br"
         }
     ],
-    "require": {
+    "require-dev": {
         "symfony/var-dumper": "^7.1"
+    },
+    "require": {
+        "php": "^8.3",
+        "vlucas/phpdotenv": "^5.6"
     }
 }

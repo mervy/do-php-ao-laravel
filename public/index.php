@@ -1,11 +1,17 @@
 <?php
 
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-ini_set("error_reporting", E_ALL);
+require '../vendor/autoload.php';
+require '../bootstrap/app.php';
+require '../routes/web.php';
 
-require_once __DIR__ . '/../vendor/autoload.php';
+class HomeController
+{
+    function index()
+    {
+        view('home');
+        dd($_SESSION);
+    }
+    
+}
 
-echo "Hello World";
-
-dd('Yes');
+(new HomeController)->index();
