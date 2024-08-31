@@ -1,5 +1,9 @@
 <?php
 
+use Dotenv\Dotenv;
+use DI\ContainerBuilder;
+use Spatie\Ignition\Ignition;
+
 session_start();
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -10,5 +14,14 @@ error_reporting(E_ALL);
 require '../core/helpers/constants.php';
 require '../core/helpers/functions.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__FILE__, 2));
+$dotenv = Dotenv::createImmutable(dirname(__FILE__, 2));
 $dotenv->load();
+
+Ignition::make()
+    ->setTheme('dark')  //dark, light
+    ->shouldDisplayException(env('ENV') === 'development')
+    ->register();
+
+
+$builder = new ContainerBuilder();
+$container = $builder->build();
