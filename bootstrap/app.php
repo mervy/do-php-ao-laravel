@@ -19,6 +19,7 @@ $dotenv->load();
 
 Ignition::make()
     ->setTheme('dark')  //dark, light
+    //Change to production to hide the error page.
     ->shouldDisplayException(env('ENV') === 'development')
     ->register();
 

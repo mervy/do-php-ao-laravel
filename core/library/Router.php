@@ -12,11 +12,6 @@ class Router
     protected string $action;
     protected array $parameters = [];
 
-    /**this->parameters*/
-    // public function __construct(
-    //     private Container $container)
-    // {       
-    // }
     /**
      * Adds a new route to the router.
      *
