@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 17/08/2024 às 21:25
--- Versão do servidor: 11.4.3-MariaDB
--- Versão do PHP: 8.3.10
+-- Tempo de geração: 31/08/2024 às 14:27
+-- Versão do servidor: 11.5.2-MariaDB
+-- Versão do PHP: 8.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `news_db`
+-- Banco de dados: `do-php-ao-laravel`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `authors` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` enum('0','1') DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Despejando dados para a tabela `authors`
@@ -1065,7 +1065,7 @@ CREATE TABLE `categories` (
   `description` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `status` enum('0','1') DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Despejando dados para a tabela `categories`
@@ -1290,7 +1290,7 @@ CREATE TABLE `news` (
   `status` enum('0','1') DEFAULT '0',
   `author_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Despejando dados para a tabela `news`
@@ -2376,7 +2376,7 @@ CREATE TABLE `newsletters` (
   `email` varchar(50) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `created_at` date DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Despejando dados para a tabela `newsletters`
@@ -3396,7 +3396,7 @@ CREATE TABLE `visitors` (
   `news_id` int(11) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `created_at` date DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Despejando dados para a tabela `visitors`

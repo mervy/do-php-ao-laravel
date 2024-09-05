@@ -8,8 +8,7 @@ class HomeController
 {
     function index()
     {
-        view('home');
-        dd($_SESSION);
+      
     }
     
 }
