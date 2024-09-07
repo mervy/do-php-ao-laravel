@@ -1,8 +1,8 @@
 <?php
 
-namespace Kurama\Core\library;
+namespace Kurama\Core\Library;
 
-use Exception;
+use DI\Container;
 use Kurama\Core\Exceptions\ControllerNotFoundException;
 
 class Router
@@ -11,6 +11,10 @@ class Router
     protected ?string $controller = null;
     protected string $action;
     protected array $parameters = [];
+
+    public function __construct(
+        private Container $container
+    ) {}
 
     /**
      * Adds a new route to the router.
@@ -49,6 +53,7 @@ class Router
      */
     private function handleUri(array $routes)
     {
+
         foreach ($routes as $uri => $route) {
             if ($uri === REQUEST_URI) {
                 [$this->controller, $this->action] = $route;
@@ -65,30 +70,39 @@ class Router
         }
 
         if ($this->controller) {
-            return $this->handleController(
-                $this->controller,
-                $this->action,
-                $this->parameters
-            );
+            return $this->handleController();
         }
 
         return $this->handleNotFound();
     }
 
-    private function handleController(
-        string $controller,
-        string $action,
-        array $parameters
-    ) {
-        if (!class_exists($controller) || !method_exists($controller, $action)) {
-            throw new ControllerNotFoundException("[$controller::$action] does not exist");
+
+    /**
+     * Handles the execution of a controller and action, passing any route parameters as arguments.
+     *
+     * @param string $controller The name of the controller class to instantiate.
+     * @param string $action The method within the controller class to call.
+     * @param array $parameters An array of route parameters to pass as arguments to the controller method.
+     *
+     * @return mixed The result of calling the controller method with the given arguments.
+     */
+    private function handleController() {
+        if (!class_exists($this->controller) || !method_exists($this->controller, $this->action)) {
+            throw new ControllerNotFoundException("[$this->controller::$this->action] does not exist");
         }
-        $controller = new $controller;
-        $controller->$action(...$parameters);
+
+        $controller = $this->container->get($this->controller);
+        $this->container->call([$controller, $this->action], [...$this->parameters]);
     }
+
+    /**
+     * Handles the "not found" scenario by setting an HTTP response code of 500 and returning a "Not Found" message.
+     *
+     * @return void
+     */
     private function handleNotFound()
     {
-        http_response_code(500);
-        echo 'Not Found';
+        http_response_code(404);
+        echo "Resource not found - 404";
     }
 }
