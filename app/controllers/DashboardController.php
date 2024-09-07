@@ -1,6 +1,6 @@
 <?php
 
-namespace Kurama\controllers;
+namespace Kurama\Controllers;
 
 class DashboardController
 {
