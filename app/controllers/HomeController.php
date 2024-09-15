@@ -2,11 +2,13 @@
 
 namespace Kurama\Controllers;
 
+use Kurama\Core\Library\Layout;
+
 class HomeController
 {
     public function index()
     {
-        dump( "Index do ".__CLASS__);
+        
+        Layout::render('home', ['title' => 'Homepage']);
     }
-
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Dotenv\Dotenv;
 use Kurama\Core\Library\App;
 
 require '../core/helpers/constants.php';
