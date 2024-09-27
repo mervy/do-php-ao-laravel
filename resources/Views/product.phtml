@@ -1,10 +1,17 @@
-<?php $this->layout('template::layout', ['title' => $title]) ?>
+<?php $this->layout('template::layout', ['title' => $title, 'item' => $item, 'class' => $class]) ?>
 
 <?php $this->insert('partials::header') ?>
 
 <div class="container">
   <h1><?= $this->e($title) ?> </h1>
-  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod harum, similique dolores, quasi sed beatae quibusdam ipsum, qui a animi placeat suscipit cum. Ullam nemo ab deserunt a, quasi commodi.</p> 
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod harum, similique dolores, quasi sed beatae quibusdam ipsum, qui a animi placeat suscipit cum. Ullam nemo ab deserunt a, quasi commodi.</p>
+
+  <p>Você está na <b><?= $class ?></b></p>
+
+  <h3>Itens</h3>
+    <ul>
+      <li><?= $item ?></li>
+    </ul>
 </div>
 
 <?php $this->insert('partials::footer') ?>

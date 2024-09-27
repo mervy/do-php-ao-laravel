@@ -2,10 +2,12 @@
 
 namespace Kurama\Controllers;
 
+use Kurama\Core\Library\Layout;
+
 class DashboardController
 {
     public function index()
     {
-        dump( "Index da ".__CLASS__);
+        Layout::render('dashboard', ['title' => 'Dashboard']);
     }
 }

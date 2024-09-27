@@ -66,7 +66,32 @@ $templates->setFileExtension('phtml');
 ```
 
 - Use nos controllers assim:
-
 ```php
 Layout::render('login', ['title' => 'Login']);
+```
+
+Ou assim: 
+```php
+    public function index(string $item)
+    {       
+        Layout::render('product', [
+            'title' => 'Product Page',
+            'item' => $item,           
+            "class" => __CLASS__
+        ]);       
+       
+    }
+
+    public function show(
+        string $item1,
+        string $item2,
+        Email $email
+    ) {
+        Layout::render('product', [
+            'title' => 'Product Page',
+            'Item_1' => $item1,
+            'Item_2' => $item2,
+            "Email" => $email
+        ]);
+    }
 ```
