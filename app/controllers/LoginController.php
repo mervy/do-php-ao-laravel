@@ -2,10 +2,15 @@
 
 namespace Kurama\Controllers;
 
+use Kurama\Core\Library\Layout;
+
 class LoginController
 {
     public function index()
     {
-        dump( "Index do ".__CLASS__);
+        view(
+            'login',
+            ['title' => 'Login']
+        );
     }
 }
