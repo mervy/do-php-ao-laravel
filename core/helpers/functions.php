@@ -1,6 +1,8 @@
 <?php
 
+use Kurama\Core\Library\Layout;
+
 function view($view, $data=[])
 {
-    dd($view);
+    return Layout::render($view,$data);
 }

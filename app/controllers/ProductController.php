@@ -31,7 +31,7 @@ class ProductController
         string $item2,
         Email $email
     ) {
-        Layout::render('product2', [
+       view('product2', [
             'title' => 'Product Page 2',
             'item1' => $item1,
             'item2' => $item2,           

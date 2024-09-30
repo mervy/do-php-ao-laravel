@@ -8,6 +8,9 @@ class LoginController
 {
     public function index()
     {
-        Layout::render('login', ['title' => 'Login']);
+        view(
+            'login',
+            ['title' => 'Login']
+        );
     }
 }

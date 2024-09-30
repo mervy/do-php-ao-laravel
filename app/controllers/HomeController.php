@@ -9,6 +9,6 @@ class HomeController
     public function index()
     {
         
-        Layout::render('home', ['title' => 'Homepage']);
+       view('home', ['title' => 'Homepage']);
     }
 }
