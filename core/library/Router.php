@@ -3,6 +3,7 @@
 namespace Kurama\Core\Library;
 
 use DI\Container;
+use Kurama\Controllers\NotFoundController;
 use Kurama\Core\Exceptions\ControllerNotFoundException;
 
 class Router
@@ -103,6 +104,6 @@ class Router
     private function handleNotFound()
     {
         http_response_code(404);
-        echo "Resource not found - 404";
+        header('Location: /404');
     }
 }

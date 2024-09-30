@@ -3,14 +3,21 @@
 namespace Kurama\Controllers;
 
 use Kurama\Library\Email;
+use Kurama\Core\Library\Layout;
 
 class ProductController
 {
 
- public function index(string $item){
-    echo "<h1>Index da " . __CLASS__ . "</h1>";  
-    echo "<p>Item 1 é: $item </p>" ;  
- }
+    public function index(string $item)
+    {
+       
+        Layout::render('product', [
+            'title' => 'Product Page',
+            'item' => $item,           
+            "class" => __CLASS__
+        ]);       
+       
+    }
 
     /**
      * Index action method. Displays product information.
@@ -20,16 +27,14 @@ class ProductController
      * @return void
      */
     public function show(
-        string $item,
+        string $item1,
         string $item2,
         Email $email
-        )
-    {
-        // Display a heading indicating the current class
-        echo "<h1>Index da " . __CLASS__ . "</h1>";  
-        echo "<p>Item 1 é: $item e item 2 é $item2</p>" ;    
-              
-        // Dump the Email library instance for debugging purposes
-        dd($email);
+    ) {
+       view('product2', [
+            'title' => 'Product Page 2',
+            'item1' => $item1,
+            'item2' => $item2,           
+        ]);
     }
 }
